@@ -6,34 +6,6 @@ using UnityEngine;
 
 namespace EVAEnhancements
 {
-    [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class EVAEnhancementsBehaviour : MonoBehaviour
-    {
-        internal static GameObject navBall = null;
-        internal static NavBall ball = null;
-
-        public void Update()
-        {
-            if (navBall == null)
-            {
-                // Get a pointer to the navball
-                navBall = GameObject.Find("NavBall");
-                ball = navBall.GetComponent<NavBall>();
-            }
-            if (FlightGlobals.ActiveVessel.isEVA)
-            {
-                // Change rotation offset so it points in the direction the Kerbal is facing
-                ball.rotationOffset = new Vector3(0, 0, 0);
-            }
-            else
-            {
-                ball.rotationOffset = new Vector3(90f, 0, 0);
-            }
-
-        }
-    }
-
-
     public class EVAEnhancements : PartModule
     {
         // Action menu fields
@@ -41,15 +13,12 @@ namespace EVAEnhancements
         [KSPField(guiActive = true, guiName = "Profession", isPersistant = true)]
         string kerbalProfession = null;
 
-        [KSPField(guiName = "Jetpack", guiFormat = "P0", guiActive = true, isPersistant = true), UI_FloatRange(minValue = 0.01f, maxValue = 1f, stepIncrement = 0.05f)]
+        [KSPField(guiName = "Jetpack", guiFormat = "P0", guiActive = true, isPersistant = true), UI_FloatRange(minValue = 0.01f, maxValue = 1f, stepIncrement = 0.01f)]
         float jetPackPower = 1f;
         float currentPower = 1f;
 
         bool rotateOnMove = false;
         bool precisionControls = false;
-
-        // Define settings file
-        Settings settings = new Settings("EVAEnhancements.cfg");
 
         // Variables to keep track of original values
         float origLinPower = 0f;
@@ -59,6 +28,8 @@ namespace EVAEnhancements
         // Pointers to various objects
         KerbalEVA eva = null;
         static ScreenSafeUISlideTab navBallTab = null;
+
+        Settings settings = SettingsWrapper.Instance.gameSettings;
 
         public override void OnStart(PartModule.StartState state)
         {
@@ -75,6 +46,7 @@ namespace EVAEnhancements
 
             // Set default jet pack power
             jetPackPower = settings.defaultJetPackPower;
+
 
         }
 
