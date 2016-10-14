@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using KSP.UI.Screens;
 
 namespace EVAEnhancements
 {
@@ -18,10 +19,10 @@ namespace EVAEnhancements
 
         internal void Awake()
         {
-            settings.Load();
-            settings.Save();
+            SettingsWrapper.Instance.gameSettings.Load();
+            SettingsWrapper.Instance.gameSettings.Save();
 
-            if (settings.useStockToolbar)
+            if (SettingsWrapper.Instance.gameSettings.useStockToolbar)
             {
                 GameEvents.onGUIApplicationLauncherReady.Add(OnGUIApplicationLauncherReady);
             }
@@ -80,12 +81,12 @@ namespace EVAEnhancements
                 else
                 {
                     // Blizzy Toolbar not available, fall back to stock launcher
-                    settings.useStockToolbar = true;
+                    SettingsWrapper.Instance.gameSettings.useStockToolbar = true;
                 }
             }
 
             // Load Application Launcher
-            if (settingsWindow.launcherButton == null && settings.useStockToolbar)
+            if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
             {
                 OnGUIApplicationLauncherReady();
             }
@@ -156,7 +157,7 @@ namespace EVAEnhancements
         internal void Update()
         {
             // Load Application Launcher
-            if (settingsWindow.launcherButton == null && settings.useStockToolbar)
+            if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
             {
                 OnGUIApplicationLauncherReady();
                 if (settingsWindow.showWindow)
@@ -166,7 +167,7 @@ namespace EVAEnhancements
             }
 
             // Destroy application launcher
-            if (settingsWindow.launcherButton != null && settings.useStockToolbar == false)
+            if (settingsWindow.launcherButton != null && SettingsWrapper.Instance.gameSettings.useStockToolbar == false)
             {
                 removeApplicationLauncher();
             }

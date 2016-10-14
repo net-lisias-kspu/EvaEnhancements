@@ -11,7 +11,8 @@ namespace EVAEnhancements
     {
         internal Settings(String FilePath) : base(FilePath) { }
 
-        public float precisionModePower = 0.1f;
+        [Persistent]
+        public float defaultPrecisionModePower = 0.1f;
 
         [Persistent]
         public float defaultJetPackPower = 1f;
