@@ -6,7 +6,7 @@ using UnityEngine;
 using KSP.UI.Screens.Flight;
 
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class EVAEnhancementsBehaviour : MonoBehaviour

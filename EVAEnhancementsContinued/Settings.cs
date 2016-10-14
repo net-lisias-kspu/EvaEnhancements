@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using KSPPluginFramework;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     public class Settings : ConfigNodeStorage
     {

@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using KSP.UI.Screens.Flight;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     public class EVAEnhancements : PartModule
     {

@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using KSP.UI.Screens;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class SettingsWindowBehaviour : MonoBehaviour

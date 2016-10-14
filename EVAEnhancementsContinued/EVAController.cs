@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     class EVAController
     {

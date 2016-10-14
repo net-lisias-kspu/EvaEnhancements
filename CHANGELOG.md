@@ -1,5 +1,12 @@
 #Changelog
 
+EVAEnhancementsContinued
+0.1.0
+	Initial release for 1.2
+
+
+Following are from old mod:
+
 ## 1.1.1 - 2015/12/06
 - fixes dumb mistake in version file
 

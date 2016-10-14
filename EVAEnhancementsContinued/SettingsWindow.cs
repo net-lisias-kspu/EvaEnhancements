@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using KSP.UI.Screens;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     internal class SettingsWindow
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{D22CDA1B-8252-4517-B8B6-409F85AC71DB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EVAEnhancements</RootNamespace>
-    <AssemblyName>EVAEnhancements</AssemblyName>
+    <RootNamespace>EVAEnhancementsContinued</RootNamespace>
+    <AssemblyName>EVAEnhancementsContinued</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\jbb\AppData\Local\Temp\vs2A17.tmp\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\jbb\AppData\Local\Temp\vs2A17.tmp\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AddCustomModules.cs" />
@@ -47,9 +49,6 @@
   <ItemGroup>
     <None Include="buildRelease.bat" />
     <None Include="deploy.bat" />
-    <None Include="EVAEnhancements.version">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\blizzyToolbar.png">
@@ -81,10 +80,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>start /D D:\Users\jbb\github\EVAEnhancements\EVAEnhancements /WAIT deploy.bat
+    <PostBuildEvent>start /D D:\Users\jbb\github\EVAEnhancementsContinued\EVAEnhancementsContinued /WAIT deploy.bat
+
+
 
 if $(ConfigurationName) == Release (
-start /D D:\Users\jbb\github\EVAEnhancements\EVAEnhancements /WAIT buildRelease.bat
+
+start /D D:\Users\jbb\github\EVAEnhancementsContinued\EVAEnhancementsContinued /WAIT buildRelease.bat
+
 )</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

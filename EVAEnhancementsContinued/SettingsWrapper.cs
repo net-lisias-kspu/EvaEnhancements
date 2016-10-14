@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EVAEnhancements
+namespace EVAEnhancementsContinued
 {
     public sealed class SettingsWrapper
     {
