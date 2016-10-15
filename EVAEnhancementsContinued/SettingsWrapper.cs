@@ -17,7 +17,7 @@ namespace EVAEnhancementsContinued
 
         private SettingsWrapper()
         {
-            gameSettings = new Settings("PluginData/EVAEnhancements.cfg");
+            gameSettings = new Settings("../PluginData/EVAEnhancements.cfg");
             modStyle = new ModStyle();
         }
 

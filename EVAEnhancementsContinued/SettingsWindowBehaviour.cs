@@ -61,7 +61,7 @@ namespace EVAEnhancementsContinued
         {
             if (settingsWindow.launcherButton == null && settings.useStockToolbar)
             {
-                settingsWindow.launcherButton = ApplicationLauncher.Instance.AddModApplication(showWindow, hideWindow, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, SettingsWrapper.Instance.modStyle.GetImage("EVAEnhancements/textures/toolbar", 38, 38));
+                settingsWindow.launcherButton = ApplicationLauncher.Instance.AddModApplication(showWindow, hideWindow, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, SettingsWrapper.Instance.modStyle.GetImage("EVAEnhancementsContinued/textures/toolbar", 38, 38));
             }
         }
 
@@ -73,8 +73,8 @@ namespace EVAEnhancementsContinued
                 if (ToolbarManager.ToolbarAvailable)
                 {
                     // Create button
-                    settingsWindow.blizzyButton = ToolbarManager.Instance.add("EVAEnhancements", "blizzyButton");
-                    settingsWindow.blizzyButton.TexturePath = "EVAEnhancements/textures/blizzyToolbar";
+                    settingsWindow.blizzyButton = ToolbarManager.Instance.add("EVAEnhancementsContinued", "blizzyButton");
+                    settingsWindow.blizzyButton.TexturePath = "EVAEnhancementsContinued/textures/blizzyToolbar";
                     settingsWindow.blizzyButton.ToolTip = "EVA Enhancements";
                     settingsWindow.blizzyButton.OnClick += (e) => toggleWindow();
                 }
