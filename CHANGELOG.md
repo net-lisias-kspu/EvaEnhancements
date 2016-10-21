@@ -8,6 +8,8 @@ EVAEnhancementsContinued
 	Fixed missing icons
 	Fixed cfg file save location
 
+0.1.2
+	Fixed problem with Toolbarwrapper.cs
 
 Following are from old mod:
 
