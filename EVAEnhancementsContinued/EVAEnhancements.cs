@@ -12,13 +12,13 @@ namespace EVAEnhancementsContinued
         // Action menu fields
 
         [KSPField(guiActive = true, guiName = "Profession", isPersistant = true)]
-        string kerbalProfession = null;
+        string kerbalProfession = "";
 
         [KSPField(guiName = "Jetpack Power", guiFormat = "P0", guiActive = true, isPersistant = true), UI_FloatRange(minValue = .1f, maxValue = 1f, stepIncrement = 0.01f)]
         public float jetPackPower = 1f;
 
         [KSPField(guiName = "Precision Mode Power", guiFormat = "P0", guiActive = true, isPersistant = true), UI_FloatRange(minValue = 0.01f, maxValue = .5f, stepIncrement = 0.01f)]
-        public float precisionModePower = 0.1f;
+        public float precisionModePower = 0.25f;
 
         [KSPField(guiName = "Precision Mode Power",  guiActive = true, isPersistant = true)]
         public bool precisionControls = false;
@@ -92,7 +92,7 @@ namespace EVAEnhancementsContinued
                 // Set pointer to KerbalEVA
                 if (eva == null || this.vessel != FlightGlobals.ActiveVessel)
                 {
-                    eva = FlightGlobals.ActiveVessel.GetComponent<KerbalEVA>();
+                    eva = FlightGlobals.ActiveVessel.GetComponent<KerbalEVA>();                                        
                 }
 
                 // Only process is this is current vessel and the eva pointer was set previously

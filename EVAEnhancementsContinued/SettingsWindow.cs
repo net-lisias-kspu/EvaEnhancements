@@ -26,6 +26,8 @@ namespace EVAEnhancementsContinued
         private bool settingRollLeft = false;
         private bool settingRollRight = false;
 
+        private bool settingsFillFromPod = false;
+
 
 
 
@@ -169,7 +171,16 @@ namespace EVAEnhancementsContinued
                 }
             }
             GUILayout.EndHorizontal();
-
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("EVA Propellant refills from pod:");
+            settingsFillFromPod = GUILayout.Toggle(settings.fillFromPod, "");
+            if (settingsFillFromPod != settings.fillFromPod)
+            {
+                settings.fillFromPod = settingsFillFromPod;
+                settings.Save();
+            }
+            
+            GUILayout.EndHorizontal();
             bool newUseStockToolbar;
             if (ToolbarManager.ToolbarAvailable)
             {

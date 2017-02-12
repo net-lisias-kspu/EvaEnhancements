@@ -32,5 +32,8 @@ namespace EVAEnhancementsContinued
         [Persistent]
         public bool useStockToolbar = true;
 
+        [Persistent]
+        public bool fillFromPod = true;
+
     }
 }

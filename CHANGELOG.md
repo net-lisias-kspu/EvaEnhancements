@@ -11,6 +11,12 @@ EVAEnhancementsContinued
 0.1.2
 	Fixed problem with Toolbarwrapper.cs
 
+0.1.3
+	Added setting to allow/disallow EVA kerbal from filling EVA propellent from the pod
+	Added AssemblyVersion automatic updating
+	Added standard log class
+	Changed initialization of kerbalProfession from null to an empty string
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06
