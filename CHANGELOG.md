@@ -17,6 +17,9 @@ EVAEnhancementsContinued
 	Added standard log class
 	Changed initialization of kerbalProfession from null to an empty string
 
+0.1.4
+	Fixed harmless nullref when closing the window with the "x" button and using Blizzy's Toolbarwrapper
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06

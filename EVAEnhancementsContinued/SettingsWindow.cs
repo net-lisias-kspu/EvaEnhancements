@@ -205,7 +205,8 @@ namespace EVAEnhancementsContinued
             if (GUI.Button(new Rect(windowRect.width - 18, 3f, 15f, 15f), new GUIContent("X")))
             {
                 showWindow = false;
-                launcherButton.SetFalse();
+                if (settings.useStockToolbar)
+                    launcherButton.SetFalse();
             }
 
             GUI.DragWindow();
