@@ -20,6 +20,9 @@ EVAEnhancementsContinued
 0.1.4
 	Fixed harmless nullref when closing the window with the "x" button and using Blizzy's Toolbarwrapper
 
+0.1.5
+	Fixed nullref in the onCrewOnEva when resource didn't exist
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06

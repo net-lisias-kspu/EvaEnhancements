@@ -117,7 +117,7 @@ namespace EVAEnhancementsContinued
                 return;
 
 
-            var resource = data.from.Resources.Where(p => p.info.name == resourceName).First();
+            var resource = data.from.Resources.Where(p => p.info.name == resourceName).FirstOrDefault();
             if (resource == null)
             {
                 Log.Info("Resource not found: " + resourceName + " in part: " + data.from.partInfo.title);
