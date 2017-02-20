@@ -48,7 +48,8 @@ namespace EVAEnhancementsContinued
             {
                 // Get a pointer to the navball
                 navBall = GameObject.Find("NavBall");
-                ball = navBall.GetComponent<NavBall>();
+                if (navBall != null)
+                    ball = navBall.GetComponent<NavBall>();
             }
         }
 
