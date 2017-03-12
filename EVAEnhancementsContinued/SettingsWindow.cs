@@ -27,8 +27,8 @@ namespace EVAEnhancementsContinued
         private bool settingRollRight = false;
 
         private bool settingsFillFromPod = false;
-
-
+        private bool settingsEvaNavballFollowsKerbal = false;
+        bool newUseStockToolbar;
 
 
         internal SettingsWindow()
@@ -37,7 +37,7 @@ namespace EVAEnhancementsContinued
             modStyle = SettingsWrapper.Instance.modStyle;
             showWindow = false;
             if (!windowRectDefined)
-                windowRect = new Rect((Screen.width - 300) / 1, (Screen.height - 300) / 2, 250, 300);
+                windowRect = new Rect((Screen.width - 300) / 1, (Screen.height - 300) / 2, 250, 350);
             windowRectDefined = true;
             windowId = GUIUtility.GetControlID(FocusType.Passive);
         }
@@ -59,7 +59,7 @@ namespace EVAEnhancementsContinued
             GUILayout.BeginVertical();
             GUILayout.Label("EVA Enhancements - Settings", modStyle.guiStyles["titleLabel"]);
             GUILayout.EndVertical();
-            
+
             GUILayout.BeginVertical();
             scrollPos = GUILayout.BeginScrollView(scrollPos);
 
@@ -69,7 +69,7 @@ namespace EVAEnhancementsContinued
             {
                 settings.defaultJetPackPower = newJetPackPower;
                 settings.Save();
-                
+
             }
             GUILayout.Space(10f);
 
@@ -84,7 +84,7 @@ namespace EVAEnhancementsContinued
             GUILayout.Space(10f);
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pitch Down",GUILayout.ExpandWidth(true));
+            GUILayout.Label("Pitch Down", GUILayout.ExpandWidth(true));
 
             if (settingPitchDown)
             {
@@ -98,7 +98,7 @@ namespace EVAEnhancementsContinued
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.pitchDown.ToString()),GUILayout.Width(125)))
+                if (GUILayout.Button(new GUIContent(settings.pitchDown.ToString()), GUILayout.Width(125)))
                 {
                     settingPitchDown = true;
                 }
@@ -106,7 +106,7 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Pitch Up",GUILayout.ExpandWidth(true));
+            GUILayout.Label("Pitch Up", GUILayout.ExpandWidth(true));
 
             if (settingPitchUp)
             {
@@ -120,7 +120,7 @@ namespace EVAEnhancementsContinued
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.pitchUp.ToString()),GUILayout.Width(125)))
+                if (GUILayout.Button(new GUIContent(settings.pitchUp.ToString()), GUILayout.Width(125)))
                 {
                     settingPitchUp = true;
                 }
@@ -129,7 +129,7 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Roll Left",GUILayout.ExpandWidth(true));
+            GUILayout.Label("Roll Left", GUILayout.ExpandWidth(true));
 
             if (settingRollLeft)
             {
@@ -143,7 +143,7 @@ namespace EVAEnhancementsContinued
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.rollLeft.ToString()),GUILayout.Width(125)))
+                if (GUILayout.Button(new GUIContent(settings.rollLeft.ToString()), GUILayout.Width(125)))
                 {
                     settingRollLeft = true;
                 }
@@ -151,7 +151,7 @@ namespace EVAEnhancementsContinued
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label("Roll Right",GUILayout.ExpandWidth(true));
+            GUILayout.Label("Roll Right", GUILayout.ExpandWidth(true));
 
             if (settingRollRight)
             {
@@ -165,27 +165,32 @@ namespace EVAEnhancementsContinued
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.rollRight.ToString()),GUILayout.Width(125)))
+                if (GUILayout.Button(new GUIContent(settings.rollRight.ToString()), GUILayout.Width(125)))
                 {
                     settingRollRight = true;
                 }
             }
             GUILayout.EndHorizontal();
+            GUILayout.Space(10);
             GUILayout.BeginHorizontal();
-            GUILayout.Label("EVA Propellant refills from pod:");
-            settingsFillFromPod = GUILayout.Toggle(settings.fillFromPod, "");
+            //GUILayout.Label("EVA Propellant refills from pod:");
+            settingsFillFromPod = GUILayout.Toggle(settings.fillFromPod, "EVA Propellant refills from pod");
             if (settingsFillFromPod != settings.fillFromPod)
             {
                 settings.fillFromPod = settingsFillFromPod;
                 settings.Save();
             }
-            
+
             GUILayout.EndHorizontal();
-            bool newUseStockToolbar;
+
+
             if (ToolbarManager.ToolbarAvailable)
             {
-                GUILayout.Space(10f);
-                newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use stock toolbar");
+
+                GUILayout.BeginHorizontal();
+                //GUILayout.Label("Use Stock Toolbar:");
+                newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use Stock Toolbar");
+                GUILayout.EndHorizontal();
             }
             else
             {
@@ -197,6 +202,16 @@ namespace EVAEnhancementsContinued
                 settings.useStockToolbar = newUseStockToolbar;
                 settings.Save();
             }
+
+            GUILayout.BeginHorizontal();
+            // GUILayout.Label("NavBall follows Kerbal:");
+            settingsEvaNavballFollowsKerbal = GUILayout.Toggle(settings.evaNavballFollowsKerbal, "NavBall follows Kerbal");
+            if (settingsEvaNavballFollowsKerbal != settings.evaNavballFollowsKerbal)
+            {
+                settings.evaNavballFollowsKerbal = settingsEvaNavballFollowsKerbal;
+                settings.Save();
+            }
+            GUILayout.EndHorizontal();
 
             GUILayout.EndScrollView();
             GUILayout.Space(25f);

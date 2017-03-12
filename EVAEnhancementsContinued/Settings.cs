@@ -35,5 +35,8 @@ namespace EVAEnhancementsContinued
         [Persistent]
         public bool fillFromPod = true;
 
+        [Persistent]
+        public bool evaNavballFollowsKerbal = false;
+
     }
 }

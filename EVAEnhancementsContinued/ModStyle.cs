@@ -27,6 +27,11 @@ namespace EVAEnhancementsContinued
             skin.label.padding.top = 0;
             skin.label.fontSize = fontSize;
 
+            skin.toggle.padding.top = 0;
+           // skin.toggle.alignment = TextAnchor.UpperLeft;
+            skin.toggle.fontSize = fontSize;
+
+
             skin.verticalScrollbar.fixedWidth = 10f;
 
             skin.window.onNormal.textColor = skin.window.normal.textColor = XKCDColors.Green_Yellow;

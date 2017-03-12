@@ -17,7 +17,7 @@ namespace EVAEnhancementsContinued
             DETAIL = 4,
             TRACE = 5
         };
-        static string PREFIX = "";
+        static string PREFIX = "EVAEnhancements:";
 
         public static void setTitle(string t)
         {

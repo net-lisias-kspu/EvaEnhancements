@@ -24,7 +24,13 @@ EVAEnhancementsContinued
 	Fixed nullref in the onCrewOnEva when resource didn't exist
 
 0.1.6
-	Fixxed nullref when switching to a scansat which doesn't have a navball
+	Fixed nullref when switching to a scansat
+
+0.1.7
+	Added fix to allow Navball follow kerbal on EVA
+	Added navball fix to settings screen
+	Updated toggle settings to be consistent with other settings
+
 
 Following are from old mod:
 

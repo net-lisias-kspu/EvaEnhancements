@@ -53,6 +53,27 @@ namespace EVAEnhancementsContinued
             }
         }
 
+        Transform target;
+        Vector3 rotationOffset = new Vector3(0f, 0f, 0f);
+        Quaternion attitudeGymbal;
+        static NavBall nav = FindObjectOfType<KSP.UI.Screens.Flight.NavBall>(); // cache somewhere
+        private void LateUpdate()
+        {
+            if (!FlightGlobals.ActiveVessel.isEVA || !settings.evaNavballFollowsKerbal)
+                return;
+            
+            CelestialBody currentMainBody = FlightGlobals.currentMainBody;
+            
+            target = FlightGlobals.ActiveVessel.vesselTransform;
+
+            attitudeGymbal = Quaternion.Euler(rotationOffset) * Quaternion.Inverse(target.rotation);
+
+            nav.navBall.rotation = attitudeGymbal * Quaternion.LookRotation(Vector3.ProjectOnPlane(currentMainBody.position + (currentMainBody.transform.up * (float)currentMainBody.Radius) - target.position, (target.position - currentMainBody.position).normalized).normalized, (target.position - currentMainBody.position).normalized);
+
+        }
+
+
+        
         // bool fillFromPod = true;
         string resourceName = "EVA Propellant";
         Settings settings = SettingsWrapper.Instance.gameSettings;
