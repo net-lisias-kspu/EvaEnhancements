@@ -55,25 +55,39 @@ namespace EVAEnhancementsContinued
 
         Transform target;
         Vector3 rotationOffset = new Vector3(0f, 0f, 0f);
-        Quaternion attitudeGymbal;
+        Quaternion attitudeGimbal, relativeGimbal;
+        CelestialBody currentMainBody;
         static NavBall nav = FindObjectOfType<KSP.UI.Screens.Flight.NavBall>(); // cache somewhere
         private void LateUpdate()
         {
             if (!FlightGlobals.ActiveVessel.isEVA || !settings.evaNavballFollowsKerbal)
                 return;
             
-            CelestialBody currentMainBody = FlightGlobals.currentMainBody;
-            
+            currentMainBody = FlightGlobals.currentMainBody;
+           // FlightGlobals.ActiveVessel.SetReferenceTransform(FlightGlobals.ActiveVessel.Parts.First());
             target = FlightGlobals.ActiveVessel.vesselTransform;
+            if (currentMainBody == null || target == null)
+                return;
 
-            attitudeGymbal = Quaternion.Euler(rotationOffset) * Quaternion.Inverse(target.rotation);
+            attitudeGimbal = Quaternion.Euler(rotationOffset) * Quaternion.Inverse(target.rotation);
 
-            nav.navBall.rotation = attitudeGymbal * Quaternion.LookRotation(Vector3.ProjectOnPlane(currentMainBody.position + (currentMainBody.transform.up * (float)currentMainBody.Radius) - target.position, (target.position - currentMainBody.position).normalized).normalized, (target.position - currentMainBody.position).normalized);
+            nav.navBall.rotation = attitudeGimbal * Quaternion.LookRotation(Vector3.ProjectOnPlane(currentMainBody.position + (currentMainBody.transform.up * (float)currentMainBody.Radius) - target.position, (target.position - currentMainBody.position).normalized).normalized, (target.position - currentMainBody.position).normalized);
 
+            if (FlightGlobals.ActiveVessel.isEVA && settings.evaHideNavballMarkers)
+            {
+                nav.progradeVector.gameObject.SetActive(false);
+                nav.retrogradeVector.gameObject.SetActive(false);
+                nav.normalVector.gameObject.SetActive(false);
+                nav.antiNormalVector.gameObject.SetActive(false);
+                nav.radialInVector.gameObject.SetActive(false);
+                nav.radialOutVector.gameObject.SetActive(false);
+                nav.progradeWaypoint.gameObject.SetActive(false);
+                nav.retrogradeWaypoint.gameObject.SetActive(false);
+            }
         }
 
 
-        
+
         // bool fillFromPod = true;
         string resourceName = "EVA Propellant";
         Settings settings = SettingsWrapper.Instance.gameSettings;

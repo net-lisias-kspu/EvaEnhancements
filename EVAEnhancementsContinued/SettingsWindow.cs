@@ -28,6 +28,7 @@ namespace EVAEnhancementsContinued
 
         private bool settingsFillFromPod = false;
         private bool settingsEvaNavballFollowsKerbal = false;
+        private bool settingsEvaHideNavballMarkers = false;
         bool newUseStockToolbar;
 
 
@@ -83,22 +84,28 @@ namespace EVAEnhancementsContinued
             }
             GUILayout.Space(10f);
 
+            string str;
+
             GUILayout.BeginHorizontal();
             GUILayout.Label("Pitch Down", GUILayout.ExpandWidth(true));
 
             if (settingPitchDown)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey)
+                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
                 {
                     settings.pitchDown = Event.current.keyCode;
+                    settings.modKeypitchDown = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingPitchDown = false;
                 }
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.pitchDown.ToString()), GUILayout.Width(125)))
+                str = settings.pitchDown.ToString();
+                if (settings.modKeypitchDown)
+                    str = "Alt-" + str;
+                if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingPitchDown = true;
                 }
@@ -111,16 +118,20 @@ namespace EVAEnhancementsContinued
             if (settingPitchUp)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey)
+                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
                 {
                     settings.pitchUp = Event.current.keyCode;
+                    settings.modKeypitchUp = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingPitchUp = false;
                 }
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.pitchUp.ToString()), GUILayout.Width(125)))
+                str = settings.pitchUp.ToString();
+                if (settings.modKeypitchUp)
+                    str = "Alt-" + str;
+                if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingPitchUp = true;
                 }
@@ -134,16 +145,20 @@ namespace EVAEnhancementsContinued
             if (settingRollLeft)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey)
+                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
                 {
                     settings.rollLeft = Event.current.keyCode;
+                    settings.modKeyrollLeft = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingRollLeft = false;
                 }
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.rollLeft.ToString()), GUILayout.Width(125)))
+                str = settings.rollLeft.ToString();
+                if (settings.modKeyrollLeft)
+                    str = "Alt-" + str;
+                if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingRollLeft = true;
                 }
@@ -156,16 +171,20 @@ namespace EVAEnhancementsContinued
             if (settingRollRight)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey)
+                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
                 {
                     settings.rollRight = Event.current.keyCode;
+                    settings.modKeyrollRight = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingRollRight = false;
                 }
             }
             else
             {
-                if (GUILayout.Button(new GUIContent(settings.rollRight.ToString()), GUILayout.Width(125)))
+                str = settings.rollRight.ToString();
+                if (settings.modKeyrollRight)
+                    str = "Alt-" + str;
+                if (GUILayout.Button(new GUIContent(str), GUILayout.Width(125)))
                 {
                     settingRollRight = true;
                 }
@@ -209,6 +228,17 @@ namespace EVAEnhancementsContinued
             if (settingsEvaNavballFollowsKerbal != settings.evaNavballFollowsKerbal)
             {
                 settings.evaNavballFollowsKerbal = settingsEvaNavballFollowsKerbal;
+                settings.Save();
+            }
+            GUILayout.EndHorizontal();
+
+            
+                 GUILayout.BeginHorizontal();
+            // GUILayout.Label("NavBall follows Kerbal:");
+            settingsEvaHideNavballMarkers = GUILayout.Toggle(settings.evaHideNavballMarkers, "Hide Navball markers on EVA");
+            if (settingsEvaHideNavballMarkers != settings.evaHideNavballMarkers)
+            {
+                settings.evaHideNavballMarkers = settingsEvaHideNavballMarkers;
                 settings.Save();
             }
             GUILayout.EndHorizontal();

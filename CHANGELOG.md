@@ -31,6 +31,10 @@ EVAEnhancementsContinued
 	Added navball fix to settings screen
 	Updated toggle settings to be consistent with other settings
 
+0.1.8
+	Fixed nullref when switching to kerbal (minor, only one time, looks like an uninitialized parameter)
+	Added option to disable Navball markers on EVA
+	Added ability to use a modifier key with a regular key (but disables the ability to use the mod key by itself).  On Windows, the key is ALT
 
 Following are from old mod:
 

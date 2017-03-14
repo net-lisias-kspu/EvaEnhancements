@@ -20,7 +20,7 @@ namespace EVAEnhancementsContinued
         [KSPField(guiName = "Precision Mode Power", guiFormat = "P0", guiActive = true, isPersistant = true), UI_FloatRange(minValue = 0.01f, maxValue = .5f, stepIncrement = 0.01f)]
         public float precisionModePower = 0.25f;
 
-        [KSPField(guiName = "Precision Mode Power",  guiActive = true, isPersistant = true)]
+        [KSPField(guiName = "Precision Mode Power", guiActive = true, isPersistant = true)]
         public bool precisionControls = false;
 
         public bool powerInited = false;
@@ -60,7 +60,7 @@ namespace EVAEnhancementsContinued
                 jetPackPower = settings.defaultJetPackPower;
                 precisionModePower = settings.defaultPrecisionModePower;
             }
-        }       
+        }
 
         public override void OnUpdate()
         {
@@ -92,7 +92,7 @@ namespace EVAEnhancementsContinued
                 // Set pointer to KerbalEVA
                 if (eva == null || this.vessel != FlightGlobals.ActiveVessel)
                 {
-                    eva = FlightGlobals.ActiveVessel.GetComponent<KerbalEVA>();                                        
+                    eva = FlightGlobals.ActiveVessel.GetComponent<KerbalEVA>();
                 }
 
                 // Only process is this is current vessel and the eva pointer was set previously
@@ -115,7 +115,7 @@ namespace EVAEnhancementsContinued
                         // Determine current jetpack power
                         if (precisionControls)
                         {
-                           // precisionModePower = settings.defaultPrecisionModePower;
+                            // precisionModePower = settings.defaultPrecisionModePower;
                             currentPower = precisionModePower;
                         }
                         else
@@ -130,13 +130,25 @@ namespace EVAEnhancementsContinued
                         eva.PropellantConsumption = origPropConsumption * currentPower;
 
                         // Detect key presses
-                        if (Input.GetKey(settings.pitchDown))
+                        Log.Info("Input.GetKey(settings.pitchDown): " + Input.GetKey(settings.pitchDown).ToString() + "  mod: " + Input.GetKey(GameSettings.MODIFIER_KEY.primary).ToString());
+                        if (Input.GetKey(settings.pitchDown) &&
+                            ((settings.modKeypitchDown == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeypitchDown == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(-1, 0, jetPackPower);
-                        if (Input.GetKey(settings.pitchUp))
+
+                        if (Input.GetKey(settings.pitchUp) &&
+                             ((settings.modKeypitchUp == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeypitchDown == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(1, 0, jetPackPower);
-                        if (Input.GetKey(settings.rollLeft))
+
+                        if (Input.GetKey(settings.rollLeft) &&
+                             ((settings.modKeyrollLeft == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeyrollLeft == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(0, -1, jetPackPower);
-                        if (Input.GetKey(settings.rollRight))
+
+                        if (Input.GetKey(settings.rollRight) &&
+                             ((settings.modKeyrollRight == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeyrollRight == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(0, 1, jetPackPower);
 
                     }
