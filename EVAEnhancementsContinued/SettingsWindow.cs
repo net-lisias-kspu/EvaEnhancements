@@ -26,7 +26,7 @@ namespace EVAEnhancementsContinued
         private bool settingRollLeft = false;
         private bool settingRollRight = false;
 
-        private bool settingsFillFromPod = false;
+    //    private bool settingsFillFromPod = false;
         private bool settingsEvaNavballFollowsKerbal = false;
         private bool settingsEvaHideNavballMarkers = false;
         bool newUseStockToolbar;
@@ -38,7 +38,7 @@ namespace EVAEnhancementsContinued
             modStyle = SettingsWrapper.Instance.modStyle;
             showWindow = false;
             if (!windowRectDefined)
-                windowRect = new Rect((Screen.width - 300) / 1, (Screen.height - 300) / 2, 250, 350);
+                windowRect = new Rect((Screen.width - 300) / 1, (Screen.height - 300) / 2, 250, 325);
             windowRectDefined = true;
             windowId = GUIUtility.GetControlID(FocusType.Passive);
         }
@@ -191,6 +191,7 @@ namespace EVAEnhancementsContinued
             }
             GUILayout.EndHorizontal();
             GUILayout.Space(10);
+#if false
             GUILayout.BeginHorizontal();
             //GUILayout.Label("EVA Propellant refills from pod:");
             settingsFillFromPod = GUILayout.Toggle(settings.fillFromPod, "EVA Propellant refills from pod");
@@ -201,7 +202,7 @@ namespace EVAEnhancementsContinued
             }
 
             GUILayout.EndHorizontal();
-
+#endif
 
             if (ToolbarManager.ToolbarAvailable)
             {

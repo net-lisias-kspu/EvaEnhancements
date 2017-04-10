@@ -8,11 +8,13 @@ using KSP.UI.Screens.Flight;
 
 namespace EVAEnhancementsContinued
 {
+#if false
     public class kerbalEVAdata
     {
         public string name;
         public double evaPropAmt;
     }
+#endif
 
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class EVAEnhancementsBehaviour : MonoBehaviour
@@ -21,7 +23,7 @@ namespace EVAEnhancementsContinued
         NavBall ball = null;
 
 
-
+#if false
         static Dictionary<string, kerbalEVAdata> kerbalEVAlist;
 
         private void Awake()
@@ -41,6 +43,7 @@ namespace EVAEnhancementsContinued
             GameEvents.onCrewOnEva.Remove(this.onEvaHandler);
             GameEvents.onCrewBoardVessel.Remove(this.onBoardHandler);
         }
+#endif
 
         internal void Update()
         {
@@ -86,11 +89,12 @@ namespace EVAEnhancementsContinued
             }
         }
 
+        Settings settings = SettingsWrapper.Instance.gameSettings;
 
-
+#if false
         // bool fillFromPod = true;
         string resourceName = "EVA Propellant";
-        Settings settings = SettingsWrapper.Instance.gameSettings;
+       
         Part lastPart = null;
 
         private void onVesselSwitching(Vessel from, Vessel to)
@@ -215,5 +219,6 @@ namespace EVAEnhancementsContinued
                     data.to.partInfo.title));
             }
         }
+#endif
     }
 }

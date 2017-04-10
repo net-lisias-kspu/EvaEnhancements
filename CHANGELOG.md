@@ -36,6 +36,9 @@ EVAEnhancementsContinued
 	Added option to disable Navball markers on EVA
 	Added ability to use a modifier key with a regular key (but disables the ability to use the mod key by itself).  On Windows, the key is ALT
 
+0.1.9
+	Removed the EVA Fuel code, it's now in the EVAFuel mod
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06

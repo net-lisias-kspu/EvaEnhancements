@@ -40,8 +40,10 @@ namespace EVAEnhancementsContinued
         [Persistent]
         public bool useStockToolbar = true;
 
+#if false
         [Persistent]
         public bool fillFromPod = true;
+#endif
 
         [Persistent]
         public bool evaNavballFollowsKerbal = false;
