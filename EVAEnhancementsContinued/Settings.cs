@@ -18,22 +18,22 @@ namespace EVAEnhancementsContinued
         public float defaultJetPackPower = 1f;
 
         [Persistent]
-        public KeyCode pitchDown = KeyCode.Alpha2;
+        public KeyCodeExtended pitchDown = new KeyCodeExtended(KeyCode.Alpha2);
         [Persistent]
         public bool modKeypitchDown = false;
             
         [Persistent]
-        public KeyCode pitchUp = KeyCode.X;
+        public KeyCodeExtended pitchUp = new KeyCodeExtended(KeyCode.X);
         [Persistent]
         public bool modKeypitchUp = false;
 
         [Persistent]
-        public KeyCode rollLeft = KeyCode.Z;
+        public KeyCodeExtended rollLeft = new KeyCodeExtended(KeyCode.Z);
         [Persistent]
         public bool modKeyrollLeft = false;
 
         [Persistent]
-        public KeyCode rollRight = KeyCode.C;
+        public KeyCodeExtended rollRight = new KeyCodeExtended(KeyCode.C);
         [Persistent]
         public bool modKeyrollRight = false;
 

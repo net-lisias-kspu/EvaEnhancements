@@ -39,6 +39,10 @@ EVAEnhancementsContinued
 0.1.9
 	Removed the EVA Fuel code, it's now in the EVAFuel mod
 
+0.1.10
+	Updated for 1.3
+	Added check for nav in lateupdate being null
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06

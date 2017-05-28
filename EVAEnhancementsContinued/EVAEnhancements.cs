@@ -130,25 +130,25 @@ namespace EVAEnhancementsContinued
                         eva.PropellantConsumption = origPropConsumption * currentPower;
 
                         // Detect key presses
-                        Log.Info("Input.GetKey(settings.pitchDown): " + Input.GetKey(settings.pitchDown).ToString() + "  mod: " + Input.GetKey(GameSettings.MODIFIER_KEY.primary).ToString());
-                        if (Input.GetKey(settings.pitchDown) &&
-                            ((settings.modKeypitchDown == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
-                            (settings.modKeypitchDown == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
+                        Log.Info("Input.GetKey(settings.pitchDown): " + ExtendedInput.GetKey(settings.pitchDown).ToString() + "  mod: " + ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary).ToString());
+                        if (ExtendedInput.GetKey(settings.pitchDown) &&
+                            ((settings.modKeypitchDown == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeypitchDown == true && ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(-1, 0, jetPackPower);
 
-                        if (Input.GetKey(settings.pitchUp) &&
-                             ((settings.modKeypitchUp == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
-                            (settings.modKeypitchDown == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
+                        if (ExtendedInput.GetKey(settings.pitchUp) &&
+                             ((settings.modKeypitchUp == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeypitchDown == true && ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(1, 0, jetPackPower);
 
-                        if (Input.GetKey(settings.rollLeft) &&
-                             ((settings.modKeyrollLeft == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
-                            (settings.modKeyrollLeft == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
+                        if (ExtendedInput.GetKey(settings.rollLeft) &&
+                             ((settings.modKeyrollLeft == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeyrollLeft == true && ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(0, -1, jetPackPower);
 
-                        if (Input.GetKey(settings.rollRight) &&
-                             ((settings.modKeyrollRight == false && !Input.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
-                            (settings.modKeyrollRight == true && Input.GetKey(GameSettings.MODIFIER_KEY.primary))))
+                        if (ExtendedInput.GetKey(settings.rollRight) &&
+                             ((settings.modKeyrollRight == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
+                            (settings.modKeyrollRight == true && ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary))))
                             EVAController.Instance.UpdateEVAFlightProperties(0, 1, jetPackPower);
 
                     }
@@ -165,7 +165,7 @@ namespace EVAEnhancementsContinued
 
         internal void LateUpdate()
         {
-            // Only process is this is current vessel and the eva pointer was set previously
+            // Only process if this is current vessel and the eva pointer was set previously
             if (this.vessel == FlightGlobals.ActiveVessel && eva != null)
             {
 

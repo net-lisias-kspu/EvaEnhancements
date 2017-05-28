@@ -58,14 +58,16 @@ namespace EVAEnhancementsContinued
 
         Transform target;
         Vector3 rotationOffset = new Vector3(0f, 0f, 0f);
-        Quaternion attitudeGimbal, relativeGimbal;
+        Quaternion attitudeGimbal;
         CelestialBody currentMainBody;
         static NavBall nav = FindObjectOfType<KSP.UI.Screens.Flight.NavBall>(); // cache somewhere
         private void LateUpdate()
         {
             if (!FlightGlobals.ActiveVessel.isEVA || !settings.evaNavballFollowsKerbal)
                 return;
-            
+            if (nav == null)
+                nav = FindObjectOfType<KSP.UI.Screens.Flight.NavBall>();
+
             currentMainBody = FlightGlobals.currentMainBody;
            // FlightGlobals.ActiveVessel.SetReferenceTransform(FlightGlobals.ActiveVessel.Parts.First());
             target = FlightGlobals.ActiveVessel.vesselTransform;

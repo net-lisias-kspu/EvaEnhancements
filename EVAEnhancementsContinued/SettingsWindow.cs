@@ -92,10 +92,10 @@ namespace EVAEnhancementsContinued
             if (settingPitchDown)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
                 {
-                    settings.pitchDown = Event.current.keyCode;
-                    settings.modKeypitchDown = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
+                    settings.pitchDown = new KeyCodeExtended(Event.current.keyCode);
+                    settings.modKeypitchDown = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingPitchDown = false;
                 }
@@ -118,10 +118,10 @@ namespace EVAEnhancementsContinued
             if (settingPitchUp)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
                 {
-                    settings.pitchUp = Event.current.keyCode;
-                    settings.modKeypitchUp = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
+                    settings.pitchUp = new KeyCodeExtended(Event.current.keyCode);
+                    settings.modKeypitchUp = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingPitchUp = false;
                 }
@@ -145,10 +145,10 @@ namespace EVAEnhancementsContinued
             if (settingRollLeft)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
                 {
-                    settings.rollLeft = Event.current.keyCode;
-                    settings.modKeyrollLeft = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
+                    settings.rollLeft = new KeyCodeExtended(Event.current.keyCode);
+                    settings.modKeyrollLeft = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingRollLeft = false;
                 }
@@ -171,10 +171,10 @@ namespace EVAEnhancementsContinued
             if (settingRollRight)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && Event.current.keyCode != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
                 {
-                    settings.rollRight = Event.current.keyCode;
-                    settings.modKeyrollRight = Input.GetKey(GameSettings.MODIFIER_KEY.primary);
+                    settings.rollRight = new KeyCodeExtended(Event.current.keyCode);
+                    settings.modKeyrollRight = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
                     settingRollRight = false;
                 }
