@@ -43,6 +43,9 @@ EVAEnhancementsContinued
 	Updated for 1.3
 	Added check for nav in lateupdate being null
 
+0.1.11
+	updated for 1.3.1
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06
