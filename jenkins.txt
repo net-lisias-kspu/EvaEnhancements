@@ -22,7 +22,7 @@
 2:EVAEnhancementsContinued,EVAEnhancementsContinued/EVAEnhancementsContinued.csproj,EVAEnhancementsContinued.version,GameData/EVAEnhancementsContinued/Plugins
 
 # 3:SOURCEFILE, DESTDIR
-3:FilterExtensions.version,GameData/EVAEnhancementsContinued
+3:EVAEnhancementsContinued.version,GameData/EVAEnhancementsContinued
 3:LICENSE.md,GameData/EVAEnhancementsContinued
 3:ReadMe.md,GameData/EVAEnhancementsContinued
 
