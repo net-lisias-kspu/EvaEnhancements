@@ -24,7 +24,7 @@
 # 3:SOURCEFILE, DESTDIR
 3:EVAEnhancementsContinued.version,GameData/EVAEnhancementsContinued
 3:LICENSE.md,GameData/EVAEnhancementsContinued
-3:ReadMe.md,GameData/EVAEnhancementsContinued
+3:README.md,GameData/EVAEnhancementsContinued
 
 # 4:SOURCDIR, DESTDIR
 #4:Textures,GameData/ManeuverQueue/Textures
