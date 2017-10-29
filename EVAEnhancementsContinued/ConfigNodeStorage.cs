@@ -6,6 +6,7 @@ Author: TriggerAu, 2014
 License: The MIT License (MIT)
 */
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -106,7 +107,7 @@ namespace KSPPluginFramework
         /// </summary>
         /// <param name="fileFullName">Absolute Path to the file to load the ConfigNode structure from</param> 
         /// <returns>Success of Load</returns>
-        public Boolean Load(String fileFullName)
+        public virtual Boolean Load(String fileFullName)
         {
             Boolean blnReturn = false;
             try
@@ -153,13 +154,14 @@ namespace KSPPluginFramework
         /// </summary>
         /// <param name="fileFullName">Absolute Path to the file to load the ConfigNode structure from</param> 
         /// <returns>Success of Save</returns>
-        public Boolean Save(String fileFullName)
+        public virtual Boolean Save(String fileFullName)
         {
             Boolean blnReturn = false;
             try
             {
                 //Encode the current object
                 ConfigNode cnToSave = this.AsConfigNode;
+
                 //Wrap it in a node with a name of the class
                 ConfigNode cnSaveWrapper = new ConfigNode(this.GetType().Name);
                 cnSaveWrapper.AddNode(cnToSave);
@@ -241,7 +243,7 @@ namespace KSPPluginFramework
         internal static void LogFormatted(String Message, params object[] strParams)
         {
             Message = String.Format(Message, strParams);                  // This fills the params into the message
-            
+
             String strMessageLine = String.Format("{0},{2},{1}",
                 DateTime.Now, Message,
                 _AssemblyName);                                           // This adds our standardised wrapper to each line

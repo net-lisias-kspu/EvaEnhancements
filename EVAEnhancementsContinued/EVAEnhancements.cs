@@ -44,6 +44,8 @@ namespace EVAEnhancementsContinued
         {
             base.OnStart(state);
 
+            rotateOnMove = GameSettings.EVA_ROTATE_ON_MOVE;
+
             // Load settings
             settings.Load();
             settings.Save();

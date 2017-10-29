@@ -46,6 +46,11 @@ EVAEnhancementsContinued
 0.1.11
 	updated for 1.3.1
 
+0.1.12
+	Added code to save/load the pitch & roll.  Old code wasn't working because the values changed from KeyCode to KeyCodeExtended
+
+
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06
