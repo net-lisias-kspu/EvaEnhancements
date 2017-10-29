@@ -49,7 +49,8 @@ EVAEnhancementsContinued
 0.1.12
 	Added code to save/load the pitch & roll.  Old code wasn't working because the values changed from KeyCode to KeyCodeExtended
 
-
+0.1.12.1
+	Removed the overriding of the stock EVA_ROTATE_ON_MOVE when going eva
 
 Following are from old mod:
 

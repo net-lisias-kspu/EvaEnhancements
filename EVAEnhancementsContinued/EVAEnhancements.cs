@@ -49,6 +49,7 @@ namespace EVAEnhancementsContinued
             // Load settings
             settings.Load();
             settings.Save();
+            rotateOnMove = GameSettings.EVA_ROTATE_ON_MOVE;
 
             // Display profession and level
             ProtoCrewMember myKerbal = this.part.protoModuleCrew.SingleOrDefault();
@@ -112,7 +113,7 @@ namespace EVAEnhancementsContinued
                         }
 
                         // Make sure this is set properly
-                        GameSettings.EVA_ROTATE_ON_MOVE = rotateOnMove;
+                       // GameSettings.EVA_ROTATE_ON_MOVE = rotateOnMove;
 
                         // Determine current jetpack power
                         if (precisionControls)
