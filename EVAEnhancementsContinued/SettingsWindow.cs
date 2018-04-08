@@ -5,12 +5,16 @@ using System.Text;
 using UnityEngine;
 using KSP.UI.Screens;
 
+using ClickThroughFix;
+using ToolbarControl_NS;
+
 namespace EVAEnhancementsContinued
 {
     internal class SettingsWindow
     {
-        internal ApplicationLauncherButton launcherButton = null;
-        internal IButton blizzyButton = null;
+        //internal ApplicationLauncherButton launcherButton = null;
+        internal ToolbarControl toolbarControl;
+        //internal IButton blizzyButton = null;
 
         internal bool showWindow;
         internal static bool windowRectDefined = false;
@@ -48,7 +52,7 @@ namespace EVAEnhancementsContinued
             if (showWindow)
             {
                 GUI.skin = modStyle.skin;
-                windowRect = GUILayout.Window(windowId, windowRect, drawWindow, "");
+                windowRect =ClickThruBlocker.GUILayoutWindow(windowId, windowRect, drawWindow, "");
             }
         }
 
@@ -191,31 +195,11 @@ namespace EVAEnhancementsContinued
             }
             GUILayout.EndHorizontal();
             GUILayout.Space(10);
-#if false
+            
             GUILayout.BeginHorizontal();
-            //GUILayout.Label("EVA Propellant refills from pod:");
-            settingsFillFromPod = GUILayout.Toggle(settings.fillFromPod, "EVA Propellant refills from pod");
-            if (settingsFillFromPod != settings.fillFromPod)
-            {
-                settings.fillFromPod = settingsFillFromPod;
-                settings.Save();
-            }
-
+            //GUILayout.Label("Use Stock Toolbar:");
+            newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use Stock Toolbar");
             GUILayout.EndHorizontal();
-#endif
-
-            if (ToolbarManager.ToolbarAvailable)
-            {
-
-                GUILayout.BeginHorizontal();
-                //GUILayout.Label("Use Stock Toolbar:");
-                newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use Stock Toolbar");
-                GUILayout.EndHorizontal();
-            }
-            else
-            {
-                newUseStockToolbar = true;
-            }
 
             if (newUseStockToolbar != settings.useStockToolbar)
             {
@@ -251,8 +235,7 @@ namespace EVAEnhancementsContinued
             if (GUI.Button(new Rect(windowRect.width - 18, 3f, 15f, 15f), new GUIContent("X")))
             {
                 showWindow = false;
-                if (settings.useStockToolbar)
-                    launcherButton.SetFalse();
+                toolbarControl.SetFalse(false);
             }
 
             GUI.DragWindow();

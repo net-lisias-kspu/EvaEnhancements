@@ -52,6 +52,12 @@ EVAEnhancementsContinued
 0.1.12.1
 	Removed the overriding of the stock EVA_ROTATE_ON_MOVE when going eva
 
+0.1.13
+	Updated for 1.4.1
+	Added support for ClickthrougBlocker
+	Added support for ToolbarController
+	Deleted lots of old disabled code
+
 Following are from old mod:
 
 ## 1.1.1 - 2015/12/06

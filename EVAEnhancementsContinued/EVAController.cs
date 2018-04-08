@@ -31,12 +31,6 @@ namespace EVAEnhancementsContinued
                 return instance;
             }
         }
-#if false
-        public EVAController()
-        {
-            LoadReflectionFields();
-        }
-#endif
 
         public void UpdateEVAFlightProperties(float pitch, float roll, float power)
         {
@@ -63,14 +57,5 @@ namespace EVAEnhancementsContinued
         }
 
 
-        // PRIVATE METHODS //
-#if false
-        private void LoadReflectionFields()
-        {
-            List<FieldInfo> fields = new List<FieldInfo>(typeof(KerbalEVA).GetFields(
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance));
-            this.vectorFields = new List<FieldInfo>(fields.Where<FieldInfo>(f => f.FieldType.Equals(typeof(Vector3))));
-        }
-#endif
     }
 }

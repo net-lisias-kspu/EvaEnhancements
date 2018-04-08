@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using KSP.UI.Screens;
+using ToolbarControl_NS;
 
 namespace EVAEnhancementsContinued
 {
@@ -21,11 +22,6 @@ namespace EVAEnhancementsContinued
         {
             SettingsWrapper.Instance.gameSettings.Load();
             SettingsWrapper.Instance.gameSettings.Save();
-
-            if (SettingsWrapper.Instance.gameSettings.useStockToolbar)
-            {
-                GameEvents.onGUIApplicationLauncherReady.Add(OnGUIApplicationLauncherReady);
-            }
 
             GameEvents.onGameSceneLoadRequested.Add(onSceneChange);
 
@@ -59,55 +55,43 @@ namespace EVAEnhancementsContinued
 
         internal void OnGUIApplicationLauncherReady()
         {
-            if (settingsWindow.launcherButton == null && settings.useStockToolbar)
+            if (settingsWindow.toolbarControl == null)
             {
-                settingsWindow.launcherButton = ApplicationLauncher.Instance.AddModApplication(showWindow, hideWindow, null, null, null, null, ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW, SettingsWrapper.Instance.modStyle.GetImage("EVAEnhancementsContinued/textures/toolbar", 38, 38));
+                settingsWindow.toolbarControl = gameObject.AddComponent<ToolbarControl>();
+                settingsWindow.toolbarControl.AddToAllToolbars(showWindow, hideWindow,
+                    ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
+                    "EvaEnhancements_NS",
+                    "evaEnhancementsButton",
+                    "EVAEnhancementsContinued/textures/toolbar",
+                    "EVAEnhancementsContinued/textures/blizzyToolbar",
+                    "EVA Enhancements"
+                );
+                settingsWindow.toolbarControl.UseBlizzy(!SettingsWrapper.Instance.gameSettings.useStockToolbar);
             }
         }
 
         internal void addLauncherButtons()
         {
-            // Load Blizzy toolbar
-            if (settingsWindow.blizzyButton == null)
-            {
-                if (ToolbarManager.ToolbarAvailable)
-                {
-                    // Create button
-                    settingsWindow.blizzyButton = ToolbarManager.Instance.add("EVAEnhancementsContinued", "blizzyButton");
-                    settingsWindow.blizzyButton.TexturePath = "EVAEnhancementsContinued/textures/blizzyToolbar";
-                    settingsWindow.blizzyButton.ToolTip = "EVA Enhancements";
-                    settingsWindow.blizzyButton.OnClick += (e) => toggleWindow();
-                }
-                else
-                {
-                    // Blizzy Toolbar not available, fall back to stock launcher
-                    SettingsWrapper.Instance.gameSettings.useStockToolbar = true;
-                }
-            }
-
-            // Load Application Launcher
-            if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
-            {
-                OnGUIApplicationLauncherReady();
-            }
+            
+            // Blizzy Toolbar not available, fall back to stock launcher
+            SettingsWrapper.Instance.gameSettings.useStockToolbar = true;
+  
+            OnGUIApplicationLauncherReady();
+   
         }
 
         internal void removeLauncherButtons()
         {
-            if (settingsWindow.launcherButton != null)
-            {
-                removeApplicationLauncher();
-            }
-            if (settingsWindow.blizzyButton != null)
-            {
-                settingsWindow.blizzyButton.Destroy();
-            }
+
+             removeApplicationLauncher();
+
         }
 
         internal void removeApplicationLauncher()
         {
-            GameEvents.onGUIApplicationLauncherReady.Remove(OnGUIApplicationLauncherReady);
-            ApplicationLauncher.Instance.RemoveModApplication(settingsWindow.launcherButton);
+            settingsWindow.toolbarControl.OnDestroy();
+            Destroy(settingsWindow.toolbarControl);
+
         }
 
         internal void showWindow()  // triggered by application launcher
@@ -121,35 +105,23 @@ namespace EVAEnhancementsContinued
         }
 
         internal void toggleWindow()
-        {
-            if (settingsWindow.launcherButton != null)
+        {            
+            if (settingsWindow.showWindow)
             {
-                if (settingsWindow.showWindow)
-                {
-                    settingsWindow.launcherButton.SetFalse();
-                }
-                else
-                {
-                    settingsWindow.launcherButton.SetTrue();
-                }
+                settingsWindow.toolbarControl.SetFalse();
             }
             else
             {
-                if (settingsWindow.showWindow)
-                {
-                    hideWindow();
-                }
-                else
-                {
-                    showWindow();
-                }
-            }
+                settingsWindow.toolbarControl.SetTrue();
+            }            
         }
 
         internal void OnGUI()
         {
             if (visibleUI)
             {
+                if (settingsWindow.toolbarControl != null)
+                    settingsWindow.toolbarControl.UseBlizzy(!SettingsWrapper.Instance.gameSettings.useStockToolbar);
                 settingsWindow.draw();
             }
         }
@@ -157,20 +129,15 @@ namespace EVAEnhancementsContinued
         internal void Update()
         {
             // Load Application Launcher
-            if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
+            //if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
             {
-                OnGUIApplicationLauncherReady();
+                //OnGUIApplicationLauncherReady();
                 if (settingsWindow.showWindow)
                 {
-                    settingsWindow.launcherButton.SetTrue();
+                    settingsWindow.toolbarControl.SetTrue();
                 }
             }
 
-            // Destroy application launcher
-            if (settingsWindow.launcherButton != null && SettingsWrapper.Instance.gameSettings.useStockToolbar == false)
-            {
-                removeApplicationLauncher();
-            }
 
         }
 
