@@ -12,9 +12,7 @@ namespace EVAEnhancementsContinued
 {
     internal class SettingsWindow
     {
-        //internal ApplicationLauncherButton launcherButton = null;
         internal ToolbarControl toolbarControl;
-        //internal IButton blizzyButton = null;
 
         internal bool showWindow;
         internal static bool windowRectDefined = false;
@@ -33,7 +31,6 @@ namespace EVAEnhancementsContinued
     //    private bool settingsFillFromPod = false;
         private bool settingsEvaNavballFollowsKerbal = false;
         private bool settingsEvaHideNavballMarkers = false;
-        bool newUseStockToolbar;
 
 
         internal SettingsWindow()
@@ -92,12 +89,15 @@ namespace EVAEnhancementsContinued
 
             GUILayout.BeginHorizontal();
             GUILayout.Label("Pitch Down", GUILayout.ExpandWidth(true));
-
+            KeyCodeExtended c = null;
+            if (Event.current.isKey)
+                c = new KeyCodeExtended(Event.current.keyCode);
             if (settingPitchDown)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey && c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
+                    Log.Info("keyodeExtended: " + c.ToString() + ", primary: " + GameSettings.MODIFIER_KEY.primary.ToString());
                     settings.pitchDown = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeypitchDown = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
@@ -122,7 +122,7 @@ namespace EVAEnhancementsContinued
             if (settingPitchUp)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.pitchUp = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeypitchUp = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
@@ -149,7 +149,7 @@ namespace EVAEnhancementsContinued
             if (settingRollLeft)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.rollLeft = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeyrollLeft = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
@@ -175,7 +175,7 @@ namespace EVAEnhancementsContinued
             if (settingRollRight)
             {
                 GUILayout.Label("<Press any key>");
-                if (Event.current.isKey && new KeyCodeExtended(Event.current.keyCode) != GameSettings.MODIFIER_KEY.primary)
+                if (Event.current.isKey &&  c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
                     settings.rollRight = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeyrollRight = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
@@ -195,9 +195,10 @@ namespace EVAEnhancementsContinued
             }
             GUILayout.EndHorizontal();
             GUILayout.Space(10);
+
+#if false
             
             GUILayout.BeginHorizontal();
-            //GUILayout.Label("Use Stock Toolbar:");
             newUseStockToolbar = GUILayout.Toggle(settings.useStockToolbar, "Use Stock Toolbar");
             GUILayout.EndHorizontal();
 
@@ -206,6 +207,7 @@ namespace EVAEnhancementsContinued
                 settings.useStockToolbar = newUseStockToolbar;
                 settings.Save();
             }
+#endif
 
             GUILayout.BeginHorizontal();
             // GUILayout.Label("NavBall follows Kerbal:");

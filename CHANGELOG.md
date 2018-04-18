@@ -1,6 +1,18 @@
-#Changelog
+
+## 1.1.1 - 2015/12/06
+- fixes dumb mistake in version file
+
+## 1.1.0 - 2015/12/06
+- fixes some KSP 1.05 compatibility issues
+- removes some custom EVA navball functionality (since it's now stock)
+
+## 1.0.0 - 2015/08/09
+- initial public release
+
+Adoption by LGG
 
 EVAEnhancementsContinued
+
 0.1.0
 	Initial release for 1.2
 
@@ -58,14 +70,7 @@ EVAEnhancementsContinued
 	Added support for ToolbarController
 	Deleted lots of old disabled code
 
-Following are from old mod:
+0.1.13.1
+	Updated to use the ToolbarController registration
+	Removed setting for blizzy from mod
 
-## 1.1.1 - 2015/12/06
-- fixes dumb mistake in version file
-
-## 1.1.0 - 2015/12/06
-- fixes some KSP 1.05 compatibility issues
-- removes some custom EVA navball functionality (since it's now stock)
-
-## 1.0.0 - 2015/08/09
-- initial public release

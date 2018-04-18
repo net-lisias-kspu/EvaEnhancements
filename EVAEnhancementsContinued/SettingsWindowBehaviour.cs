@@ -11,7 +11,7 @@ namespace EVAEnhancementsContinued
     [KSPAddon(KSPAddon.Startup.Flight, false)]
     public class SettingsWindowBehaviour : MonoBehaviour
     {
-        
+
 
         Settings settings = SettingsWrapper.Instance.gameSettings;
         SettingsWindow settingsWindow = null;
@@ -53,38 +53,31 @@ namespace EVAEnhancementsContinued
             visibleUI = false;
         }
 
-        internal void OnGUIApplicationLauncherReady()
+        internal const string MODID = "EvaEnhancements_NS";
+        internal const string MODNAME = "EVA Enhancements";
+
+
+
+        internal void addLauncherButtons()
         {
             if (settingsWindow.toolbarControl == null)
             {
                 settingsWindow.toolbarControl = gameObject.AddComponent<ToolbarControl>();
                 settingsWindow.toolbarControl.AddToAllToolbars(showWindow, hideWindow,
                     ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
-                    "EvaEnhancements_NS",
+                    MODID,
                     "evaEnhancementsButton",
                     "EVAEnhancementsContinued/textures/toolbar",
                     "EVAEnhancementsContinued/textures/blizzyToolbar",
-                    "EVA Enhancements"
+                    MODNAME
                 );
-                settingsWindow.toolbarControl.UseBlizzy(!SettingsWrapper.Instance.gameSettings.useStockToolbar);
-            }
-        }
 
-        internal void addLauncherButtons()
-        {
-            
-            // Blizzy Toolbar not available, fall back to stock launcher
-            SettingsWrapper.Instance.gameSettings.useStockToolbar = true;
-  
-            OnGUIApplicationLauncherReady();
-   
+            }
         }
 
         internal void removeLauncherButtons()
         {
-
-             removeApplicationLauncher();
-
+            removeApplicationLauncher();
         }
 
         internal void removeApplicationLauncher()
@@ -105,7 +98,7 @@ namespace EVAEnhancementsContinued
         }
 
         internal void toggleWindow()
-        {            
+        {
             if (settingsWindow.showWindow)
             {
                 settingsWindow.toolbarControl.SetFalse();
@@ -113,15 +106,13 @@ namespace EVAEnhancementsContinued
             else
             {
                 settingsWindow.toolbarControl.SetTrue();
-            }            
+            }
         }
 
         internal void OnGUI()
         {
             if (visibleUI)
             {
-                if (settingsWindow.toolbarControl != null)
-                    settingsWindow.toolbarControl.UseBlizzy(!SettingsWrapper.Instance.gameSettings.useStockToolbar);
                 settingsWindow.draw();
             }
         }
@@ -129,15 +120,11 @@ namespace EVAEnhancementsContinued
         internal void Update()
         {
             // Load Application Launcher
-            //if (settingsWindow.launcherButton == null && SettingsWrapper.Instance.gameSettings.useStockToolbar)
-            {
-                //OnGUIApplicationLauncherReady();
-                if (settingsWindow.showWindow)
-                {
-                    settingsWindow.toolbarControl.SetTrue();
-                }
-            }
 
+            if (settingsWindow.showWindow)
+            {
+                settingsWindow.toolbarControl.SetTrue();
+            }
 
         }
 

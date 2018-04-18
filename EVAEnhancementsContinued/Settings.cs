@@ -60,9 +60,6 @@ namespace EVAEnhancementsContinued
         public bool modKeyrollRight = false;
 
         [Persistent]
-        public bool useStockToolbar = true;
-
-        [Persistent]
         public bool evaNavballFollowsKerbal = false;
 
         [Persistent]
