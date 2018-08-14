@@ -73,4 +73,8 @@ EVAEnhancementsContinued
 0.1.13.1
 	Updated to use the ToolbarController registration
 	Removed setting for blizzy from mod
+	Fixed ability to use the primary Modifier key in conjunction with another key
+
+0.1.13.2
+	Fixed log spam from debugging statements
 

@@ -70,7 +70,7 @@ namespace EVAEnhancementsContinued
             }
         }
 
-        //        [ConditionalAttribute("DEBUG")]
+        [ConditionalAttribute("DEBUG")]
         public static void Info(String msg)
         {
 
@@ -80,7 +80,7 @@ namespace EVAEnhancementsContinued
             }
         }
 
-        //        [ConditionalAttribute("DEBUG")]
+        [ConditionalAttribute("DEBUG")]
         public static void Test(String msg)
         {
             //if (IsLogable(LEVEL.INFO))
