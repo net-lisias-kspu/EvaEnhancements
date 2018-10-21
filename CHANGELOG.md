@@ -78,3 +78,6 @@ EVAEnhancementsContinued
 0.1.13.2
 	Fixed log spam from debugging statements
 
+0.1.13.3
+	Version bump for 1.5 rebuild
+
