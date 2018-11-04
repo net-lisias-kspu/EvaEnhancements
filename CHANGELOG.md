@@ -81,3 +81,5 @@ EVAEnhancementsContinued
 0.1.13.3
 	Version bump for 1.5 rebuild
 
+0.1.13.4
+	Moved code adding a module to the kerbalEVA into a MM script,  This also fixes an issue with the new kerbals from the expansion pack not being able to use this

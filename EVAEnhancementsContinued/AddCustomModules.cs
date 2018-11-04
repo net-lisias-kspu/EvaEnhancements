@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if false
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using UnityEngine;
 
 namespace EVAEnhancementsContinued
 {
+
     [KSPAddon(KSPAddon.Startup.MainMenu, true)]
     public class AddCustomModules : MonoBehaviour
     {
@@ -47,3 +49,4 @@ namespace EVAEnhancementsContinued
         }
     }
 }
+#endif
