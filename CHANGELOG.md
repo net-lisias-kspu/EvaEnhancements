@@ -90,3 +90,15 @@ EVAEnhancementsContinued
 
 0.1.13.5
 	Fixed error in .version file
+
+0.1.14
+	Version bump for 1.7.2
+
+0.1.14.1
+	Fixed duplicate entries in PAW when BG DLC is installed
+		Updated MM script:
+			This ModuleManager code is because the Serenity DLC has duplicate kerbal parts, 
+			apparently used to add new modules to an existing kerbal
+			This was causing modules to get duplicated.
+			By only adding to those kerbalEVA parts which do NOT have the ROCScience experiment,
+			we ensure that duplicate entries aren't mad
