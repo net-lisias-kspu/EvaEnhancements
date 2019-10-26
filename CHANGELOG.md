@@ -102,3 +102,7 @@ EVAEnhancementsContinued
 			This was causing modules to get duplicated.
 			By only adding to those kerbalEVA parts which do NOT have the ROCScience experiment,
 			we ensure that duplicate entries aren't mad
+
+0.1.15
+	Added InstallChecker
+	Updated for KSP 1.8
