@@ -40,7 +40,7 @@ namespace EVAEnhancementsContinued
     [KSPAddon(KSPAddon.Startup.MainMenu, true)]
     internal class InstallChecker : MonoBehaviour
     {
-        internal const string MODNAME = "EVAEnhancements Continued";
+        internal const string MODNAME = "EVA Enhancements Continued";
         internal const string FOLDERNAME = "EVAEnhancementsContinued";
         internal const string EXPECTEDPATH = FOLDERNAME + "/Plugins";
 

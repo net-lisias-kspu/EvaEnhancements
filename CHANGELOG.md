@@ -106,3 +106,6 @@ EVAEnhancementsContinued
 0.1.15
 	Added InstallChecker
 	Updated for KSP 1.8
+
+0.1.15.1
+	Updated MiniAVC.dll to 1.4.0.2 to fix a nasty CTD
