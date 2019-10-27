@@ -1,3 +1,4 @@
+ChangeLog
 
 ## 1.1.1 - 2015/12/06
 - fixes dumb mistake in version file
@@ -109,3 +110,6 @@ EVAEnhancementsContinued
 
 0.1.15.1
 	Updated MiniAVC.dll to 1.4.0.2 to fix a nasty CTD
+
+0.1.15.2
+	Really did the MiniAVC update
