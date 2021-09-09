@@ -134,6 +134,7 @@ namespace EVAEnhancementsContinued
 
                         // Detect key presses
                         Log.Info("Input.GetKey(settings.pitchDown): " + ExtendedInput.GetKey(settings.pitchDown).ToString() + "  mod: " + ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary).ToString());
+
                         if (ExtendedInput.GetKey(settings.pitchDown) &&
                             ((settings.modKeypitchDown == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||
                             (settings.modKeypitchDown == true && ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary))))

@@ -113,3 +113,7 @@ EVAEnhancementsContinued
 
 0.1.15.2
 	Really did the MiniAVC update
+
+0.1.15.3
+	Added AssemblyFileVersion
+	Updated version file for 1.12
