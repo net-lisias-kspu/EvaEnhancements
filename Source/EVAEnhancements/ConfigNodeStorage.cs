@@ -1,9 +1,24 @@
-﻿/* Part of KSPPluginFramework
-Version 1.2
+﻿/*
+    This file is part of EVA Enhancements /L Unleashed
+        © 2023 LisiasT
+        © 2016-2023 LinuxGuruGamer
+        © 2015 Sean McDougall
 
-Forum Thread:http://forum.kerbalspaceprogram.com/threads/66503-KSP-Plugin-Framework
-Author: TriggerAu, 2014
-License: The MIT License (MIT)
+    EVA Enhancements /L Unleashed is licensed as follows:
+        * GPL 2.0 : https://www.gnu.org/licenses/gpl-2.0.txt
+
+    EVA Enhancements /L Unleashed is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty ofMERCHANTABILITY
+    or FITNESS FOR A PARTICULAR PURPOSE.
+
+    You should have received a copy of the GNU General Public License 2.0
+    along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
+
+    Part of KSPPluginFramework
+    Version 1.2
+    Forum Thread:http://forum.kerbalspaceprogram.com/threads/66503-KSP-Plugin-Framework
+    Author: TriggerAu, 2014
+    Original License: The MIT License (MIT)
 */
 using System;
 using System.IO;
