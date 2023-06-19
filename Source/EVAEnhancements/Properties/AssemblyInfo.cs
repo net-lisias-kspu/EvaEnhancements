@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EVAEnhancementsContinued")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("EVAEnhancements")]
+[assembly: AssemblyDescription("EVA Enhancements adds a number of features to the Kerbal Space Program EVA experience.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EVAEnhancementsContinued")]
+[assembly: AssemblyCompany(EVAEnhancements.Le)]
+[assembly: AssemblyProduct("EVAEnhancements")]
 [assembly: AssemblyCopyright("Copyright © Sean McDougall 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
