@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2019-0708: 0.1.14.1 (LinuxGuruGamer) for KSP 1.7.2
+	+ Fixed duplicate entries in PAW when BG DLC is installed
 * 2019-0704: 0.1.14 (LinuxGuruGamer) for KSP 1.7.2
 * 2019-0704: 0.1.13.6 (LinuxGuruGamer) for KSP 1.6.0
 * 2018-1112: 0.1.13.5 (LinuxGuruGamer) for KSP 1.5.1
