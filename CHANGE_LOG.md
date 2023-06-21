@@ -1,5 +1,8 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2021-0909: 0.1.15.3 (LinuxGuruGamer) for KSP 1.12.5
+	+ Added AssemblyFileVersion
+	+ Updated version file for 1.12
 * 2019-1027: 0.1.15.2 (LinuxGuruGamer) for KSP 1.9.0
 	+ Really did the MiniAVC update
 * 2019-1027: 0.1.15.1 (LinuxGuruGamer) for KSP 1.8.0
