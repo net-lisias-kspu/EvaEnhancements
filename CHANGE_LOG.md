@@ -1,5 +1,8 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2015-1206: 1.1 (seanmcdougall) for KSP 1.05
+	+ fixes some KSP 1.05 compatibility issues
+	+ removes some custom EVA navball functionality (since it's now stock)
 * 2015-0810: 1.0.0 (seanmcdougall) for KSP 1.0.4
 	+ initial public release
 * 2015-0808: 0.9.3 (seanmcdougall) for KSP 1.0.4 PRE-RELEASE
