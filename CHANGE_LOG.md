@@ -1,5 +1,9 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0314: 0.1.8 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed nullref when switching to kerbal (minor, only one time, looks like an uninitialized parameter)
+		- Added option to disable Navball markers on EVA
+		- Added ability to use a modifier key with a regular key (but disables the ability to use the mod key by itself).  On Windows, the key is ALT
 * 2017-0312: 0.1.7 (LinuxGuruGamer) for KSP 1.2.2
 	+ Added fix to allow Navball follow kerbal on EVA
 	+ Added navball fix to settings screen
