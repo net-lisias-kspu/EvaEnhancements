@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-1126: 0.1.12.1 (LinuxGuruGamer) for KSP 1.3.1
+	+ No changelog provided
 * 2017-1021: 0.1.12 (LinuxGuruGamer) for KSP 1.3.1
 	+ Added code to save/load the pitch & roll.  Old code wasn't working because the values changed from KeyCode to KeyCodeExtended
 * 2017-1009: 0.1.11 (LinuxGuruGamer) for KSP 1.3.1
