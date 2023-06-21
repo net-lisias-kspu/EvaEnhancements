@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0219: 0.1.5 (LinuxGuruGamer) for KSP 1.2.2
+	+ Fixed nullref in the onCrewOnEva when resource didn't exist
 * 2017-0213: 0.1.4 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed harmless nullref when closing the window with the "x" button and using Blizzy's Toolbarwrapper
 * 2017-0212: 0.1.3 (LinuxGuruGamer) for KSP 1.2.2
