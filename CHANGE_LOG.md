@@ -1,5 +1,11 @@
-# <AddOn Name> /L Unleashed :: Change Log
+# EVA Enhancements /L Unleashed :: Change Log
 
+* 2023-0621: 0.1.16.0 (LisiasT) for KSP >= 1.3.1
+	+ Moves the thing into the `net.lisias.ksp` hierarchy
+	+ Uses KSPe facilities
+		- UI
+		- Abstract Filesystem
+	+ Makes the thing compatible down to KSP 1.3.1 **#HURRAY!!**
 * 2021-0909: 0.1.15.3 (LinuxGuruGamer) for KSP 1.12.5
 	+ Added AssemblyFileVersion
 	+ Updated version file for 1.12
