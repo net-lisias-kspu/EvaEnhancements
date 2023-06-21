@@ -15,21 +15,14 @@
 	along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
 
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using KSP.UI.Screens;
-using ToolbarControl_NS;
 
 namespace EVAEnhancements
 {
     [KSPAddon(KSPAddon.Startup.Flight, false)]
-    public class SettingsWindowBehaviour : MonoBehaviour
+    public class SettingsWindowBehaviour : MonoBehaviour, ToolbarController.Events
     {
-
-
         Settings settings = SettingsWrapper.Instance.gameSettings;
         SettingsWindow settingsWindow = null;
 
@@ -51,79 +44,35 @@ namespace EVAEnhancements
             GameEvents.onHideUI.Add(hideUI);
 
             settingsWindow = new SettingsWindow();
-            addLauncherButtons();
+            ToolbarController.Instance.addLauncherButtons(this);
         }
 
         // Remove the launcher button when the scene changes
         internal void onSceneChange(GameScenes scene)
         {
-            removeLauncherButtons();
+            ToolbarController.Instance.removeLauncherButtons();
         }
 
-        internal void showUI() // triggered on F2
+        private void showUI() // triggered on F2
         {
             visibleUI = true;
         }
 
-        internal void hideUI() // triggered on F2
+        private void hideUI() // triggered on F2
         {
             visibleUI = false;
         }
 
-        internal const string MODID = "EvaEnhancements_NS";
-        internal const string MODNAME = "EVA Enhancements";
+        bool ToolbarController.Events.IsWindowVisible => settingsWindow.showWindow;
 
-
-
-        internal void addLauncherButtons()
-        {
-            if (settingsWindow.toolbarControl == null)
-            {
-                settingsWindow.toolbarControl = gameObject.AddComponent<ToolbarControl>();
-                settingsWindow.toolbarControl.AddToAllToolbars(showWindow, hideWindow,
-                    ApplicationLauncher.AppScenes.FLIGHT | ApplicationLauncher.AppScenes.MAPVIEW,
-                    MODID,
-                    "evaEnhancementsButton",
-                    "EVAEnhancements/textures/toolbar",
-                    "EVAEnhancements/textures/blizzyToolbar",
-                    MODNAME
-                );
-
-            }
-        }
-
-        internal void removeLauncherButtons()
-        {
-            removeApplicationLauncher();
-        }
-
-        internal void removeApplicationLauncher()
-        {
-            settingsWindow.toolbarControl.OnDestroy();
-            Destroy(settingsWindow.toolbarControl);
-
-        }
-
-        internal void showWindow()  // triggered by application launcher
+        void ToolbarController.Events.ShowWindow()  // triggered by application launcher
         {
             settingsWindow.showWindow = true;
         }
 
-        internal void hideWindow() // triggered by application launcher
+        void ToolbarController.Events.HideWindow() // triggered by application launcher
         {
             settingsWindow.showWindow = false;
-        }
-
-        internal void toggleWindow()
-        {
-            if (settingsWindow.showWindow)
-            {
-                settingsWindow.toolbarControl.SetFalse();
-            }
-            else
-            {
-                settingsWindow.toolbarControl.SetTrue();
-            }
         }
 
         internal void OnGUI()
@@ -136,12 +85,8 @@ namespace EVAEnhancements
 
         internal void Update()
         {
-            // Load Application Launcher
-
             if (settingsWindow.showWindow)
-            {
-                settingsWindow.toolbarControl.SetTrue();
-            }
+                (this as ToolbarController.Events).ShowWindow();
 
         }
 
@@ -149,12 +94,12 @@ namespace EVAEnhancements
         {
             settingsWindow.showWindow = false;
 
-            removeLauncherButtons();
+            ToolbarController.Instance.removeLauncherButtons();
 
             GameEvents.onGameSceneLoadRequested.Remove(onSceneChange);
             GameEvents.onShowUI.Remove(showUI);
             GameEvents.onHideUI.Remove(hideUI);
 
         }
-    }
+	}
 }

@@ -15,31 +15,27 @@
 	along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
 
 */
+using UnityEngine;
 
 namespace EVAEnhancements
 {
-    public sealed class SettingsWrapper
+    [KSPAddon(KSPAddon.Startup.Instantly, true)]
+    internal class Startup : MonoBehaviour
     {
-        public static readonly SettingsWrapper instance = new SettingsWrapper();
-        public Settings gameSettings { get; private set; }
-        public ModStyle modStyle { get; private set; }
-
-        static SettingsWrapper() 
+        private void Start()
         {
-        }
+            Log.force("Version {0}", Version.Text);
 
-        private SettingsWrapper()
-        {
-            gameSettings = new Settings(KSPe.IO.Hierarchy<Startup>.PLUGINDATA.Solve("EVAEnhancements.cfg"));
-            modStyle = new ModStyle();
-        }
-
-        public static SettingsWrapper Instance {
-            get
+            try
             {
-                return instance;
+                //KSPe.Util.Compatibility.Check<Startup>(typeof(Version), typeof(Configuration));
+                KSPe.Util.Installation.Check<Startup>(typeof(Version));
+            }
+            catch (KSPe.Util.InstallmentException e)
+            {
+                Log.error(e.ToShortMessage());
+                KSPe.Common.Dialogs.ShowStopperAlertBox.Show(e);
             }
         }
     }
-
 }

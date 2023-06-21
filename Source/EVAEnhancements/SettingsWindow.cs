@@ -15,21 +15,15 @@
 	along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
 
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
-using KSP.UI.Screens;
-using ClickThroughFix;
-using ToolbarControl_NS;
+
+using GUI = KSPe.UI.GUI;
+using GUILayout = KSPe.UI.GUILayout;
 
 namespace EVAEnhancements
 {
     internal class SettingsWindow
     {
-        internal ToolbarControl toolbarControl;
-
         internal bool showWindow;
         internal static bool windowRectDefined = false;
         internal static Rect windowRect;
@@ -65,7 +59,7 @@ namespace EVAEnhancements
             if (showWindow)
             {
                 GUI.skin = modStyle.skin;
-                windowRect =ClickThruBlocker.GUILayoutWindow(windowId, windowRect, drawWindow, "");
+                windowRect = GUILayout.Window(windowId, windowRect, drawWindow, "");
             }
         }
 
@@ -113,7 +107,7 @@ namespace EVAEnhancements
                 GUILayout.Label("<Press any key>");
                 if (Event.current.isKey && c.ToString() != GameSettings.MODIFIER_KEY.primary.ToString())
                 {
-                    Log.Info("keyodeExtended: " + c.ToString() + ", primary: " + GameSettings.MODIFIER_KEY.primary.ToString());
+                    Log.detail("keyodeExtended: {0}, primary: {1}", c, GameSettings.MODIFIER_KEY.primary);
                     settings.pitchDown = new KeyCodeExtended(Event.current.keyCode);
                     settings.modKeypitchDown = ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary);
                     settings.Save();
@@ -253,7 +247,7 @@ namespace EVAEnhancements
             if (GUI.Button(new Rect(windowRect.width - 18, 3f, 15f, 15f), new GUIContent("X")))
             {
                 showWindow = false;
-                toolbarControl.SetFalse(false);
+                (this as ToolbarController.Events).HideWindow();
             }
 
             GUI.DragWindow();

@@ -15,12 +15,7 @@
 	along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
 
 */
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using UnityEngine;
-using KSP.UI.Screens.Flight;
 
 namespace EVAEnhancements
 {
@@ -150,7 +145,7 @@ namespace EVAEnhancements
                         eva.PropellantConsumption = origPropConsumption * currentPower;
 
                         // Detect key presses
-                        Log.Info("Input.GetKey(settings.pitchDown): " + ExtendedInput.GetKey(settings.pitchDown).ToString() + "  mod: " + ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary).ToString());
+                        Log.detail("Input.GetKey(settings.pitchDown): {0}  mod: {1}", ExtendedInput.GetKey(settings.pitchDown), ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary));
 
                         if (ExtendedInput.GetKey(settings.pitchDown) &&
                             ((settings.modKeypitchDown == false && !ExtendedInput.GetKey(GameSettings.MODIFIER_KEY.primary)) ||

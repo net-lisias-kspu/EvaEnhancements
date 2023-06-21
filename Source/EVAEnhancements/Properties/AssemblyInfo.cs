@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EVAEnhancements")]
 [assembly: AssemblyDescription("EVA Enhancements adds a number of features to the Kerbal Space Program EVA experience.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(EVAEnhancements.Le)]
-[assembly: AssemblyProduct("EVAEnhancements")]
-[assembly: AssemblyCopyright("Copyright © Sean McDougall 2015")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany(EVAEnhancements.LegalMamboJambo.Company)]
+[assembly: AssemblyProduct(EVAEnhancements.LegalMamboJambo.Product)]
+[assembly: AssemblyCopyright(EVAEnhancements.LegalMamboJambo.Copyright)]
+[assembly: AssemblyTrademark(EVAEnhancements.LegalMamboJambo.Trademark)]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -31,6 +31,9 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-//[assembly: AssemblyVersion("1.1.1.28")]
-//[assembly: AssemblyFileVersion("1.1.1.0")]
+[assembly: AssemblyVersion(EVAEnhancements.Version.Number)]
+[assembly: AssemblyFileVersion(EVAEnhancements.Version.Number)]
+[assembly: KSPAssembly("EVAEnhancements", EVAEnhancements.Version.major, EVAEnhancements.Version.minor)]
+
+[assembly: KSPAssemblyDependency("KSPe", 2, 5)]
+[assembly: KSPAssemblyDependency("KSPe.UI", 2, 5)]

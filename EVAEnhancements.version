@@ -1,0 +1,18 @@
+{
+	"NAME"		: "EVA Enhancements /L Unleashed",
+	"URL"		: "https://github.com/net-lisias-ksp/EVAEnhancements/EVAEnhancements.version",
+	"DOWNLOAD"	: "https://github.com/net-lisias-ksp/EVAEnhancements/releases",
+	"CHANGE_LOG"	: "https://github.com/net-lisias-ksp/EVAEnhancements/CHANGE_LOG.md",
+	"CHANGE_LOG_URL":"https://github.com/net-lisias-ksp/EVAEnhancements/CHANGES.md",
+	"VERSION":{
+		"MAJOR":0,
+		"MINOR":1,
+		"PATCH":15,
+		"BUILD":3
+		},
+	"KSP_VERSION_MIN":{
+		"MAJOR":1,
+		"MINOR":3,
+		"PATCH":1
+		}
+}

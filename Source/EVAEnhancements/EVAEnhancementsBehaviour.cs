@@ -15,13 +15,8 @@
 	along with EVA Enhancements /L Unleashed . If not, see <https://www.gnu.org/licenses/>.
 
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 using KSP.UI.Screens.Flight;
-
 
 namespace EVAEnhancements
 {
