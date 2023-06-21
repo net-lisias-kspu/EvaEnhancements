@@ -1,5 +1,9 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2018-0418: 0.1.13.1 (LinuxGuruGamer) for KSP 1.4.2
+	+ Updated to use the ToolbarController registration
+	+ Removed setting for blizzy from mod
+	+ Fixed ability to use the primary Modifier key in conjunction with another key
 * 2018-0408: 0.1.13 (LinuxGuruGamer) for KSP 1.4.2
 	+ Updated for 1.4.1
 	+ Added support for ClickthrougBlocker
