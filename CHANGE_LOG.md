@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0528: 0.1.10 (LinuxGuruGamer) for KSP 1.3.0
+	+ Updated for 1.3
 * 2017-0410: 0.1.9 (LinuxGuruGamer) for KSP 1.2.2
 	+ Removed the EVAFuel code, since its now in the EVA Fuel mod
 * 2017-0314: 0.1.8 (LinuxGuruGamer) for KSP 1.2.2
