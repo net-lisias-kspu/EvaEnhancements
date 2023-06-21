@@ -1,5 +1,12 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0212: 0.1.3 (LinuxGuruGamer) for KSP 1.2.2
+```
+Added setting to allow/disallow EVA kerbal from filling EVA propellent from the pod
+Added AssemblyVersion automatic updating
+Added standard log class
+Changed initialization of kerbalProfession from null to an empty string
+```
 * 2016-1102: 0.1.2.1 (LinuxGuruGamer) for KSP 1.2.2
 	+ Updated version file
 * 2016-1021: 0.1.2 (LinuxGuruGamer) for KSP 1.2
