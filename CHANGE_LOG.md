@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-1009: 0.1.11 (LinuxGuruGamer) for KSP 1.3.1
+	+ Updated for KSP 1.3.1
 * 2017-0528: 0.1.10 (LinuxGuruGamer) for KSP 1.3.0
 	+ Updated for 1.3
 * 2017-0410: 0.1.9 (LinuxGuruGamer) for KSP 1.2.2
