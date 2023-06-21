@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2018-1021: 0.1.13.3 (LinuxGuruGamer) for KSP 1.5.1
+	+ Version bump for 1.5 rebuild
 * 2018-0814: 0.1.13.2 (LinuxGuruGamer) for KSP 1.4.5
 	+ Fixed log spam from debugging statements
 * 2018-0418: 0.1.13.1 (LinuxGuruGamer) for KSP 1.4.2
