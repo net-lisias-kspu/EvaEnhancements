@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2018-1112: 0.1.13.5 (LinuxGuruGamer) for KSP 1.5.1
+	+ Fixed error in .version file
 * 2018-1104: 0.1.13.4 (LinuxGuruGamer) for KSP 1.5.1
 	+ Moved code adding a module to the kerbalEVA into a MM script,  This also fixes an issue with the new kerbals from the expansion pack not being able to use this
 * 2018-1021: 0.1.13.3 (LinuxGuruGamer) for KSP 1.5.1
