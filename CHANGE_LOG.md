@@ -1,5 +1,10 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2018-0408: 0.1.13 (LinuxGuruGamer) for KSP 1.4.2
+	+ Updated for 1.4.1
+	+ Added support for ClickthrougBlocker
+	+ Added support for ToolbarController
+	+ Deleted lots of old disabled code
 * 2017-1126: 0.1.12.1 (LinuxGuruGamer) for KSP 1.3.1
 	+ No changelog provided
 * 2017-1021: 0.1.12 (LinuxGuruGamer) for KSP 1.3.1
