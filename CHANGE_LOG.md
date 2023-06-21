@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0410: 0.1.9 (LinuxGuruGamer) for KSP 1.2.2
+	+ Removed the EVAFuel code, since its now in the EVA Fuel mod
 * 2017-0314: 0.1.8 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed nullref when switching to kerbal (minor, only one time, looks like an uninitialized parameter)
 		- Added option to disable Navball markers on EVA
