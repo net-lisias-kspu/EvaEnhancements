@@ -1,5 +1,7 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2016-1102: 0.1.2.1 (LinuxGuruGamer) for KSP 1.2.2
+	+ Updated version file
 * 2016-1021: 0.1.2 (LinuxGuruGamer) for KSP 1.2
 	+ Update per blizzy78/ksp_toolbar#39 to prevent NotSupportedException. …
 * 2015-1206: 1.1.1 (seanmcdougall) for KSP 1.0.5
