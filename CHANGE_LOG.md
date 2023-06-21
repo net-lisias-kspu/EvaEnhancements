@@ -1,5 +1,9 @@
 # <AddOn Name> /L Unleashed :: Change Log
 
+* 2017-0312: 0.1.7 (LinuxGuruGamer) for KSP 1.2.2
+	+ Added fix to allow Navball follow kerbal on EVA
+	+ Added navball fix to settings screen
+	+ Updated toggle settings to be consistent with other settings
 * 2017-0220: 0.1.6 (LinuxGuruGamer) for KSP 1.2.2
 	+ Fixed nullref when switching to a scansat
 * 2017-0219: 0.1.5 (LinuxGuruGamer) for KSP 1.2.2
